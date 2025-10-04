@@ -1,11 +1,24 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { getCollection } from 'astro:content';
+const posts = (await getCollection('blog')).sort(
+    (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
 ---
-
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>My Sveltia Blog</title>
+</head>
+<body>
+    <h1>My Sveltia Blog</h1>
+    <p>This is my new blog, managed with Sveltia CMS!</p>
+    <ul>
+        {posts.map((post) => (
+            <li>
+                <a href={`/my-test-blog/posts/${post.slug}/`}>{post.data.title}</a>
+            </li>
+        ))}
+    </ul>
+</body>
+</html>
