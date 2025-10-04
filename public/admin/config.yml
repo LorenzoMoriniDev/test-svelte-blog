@@ -1,0 +1,22 @@
+# This file will be configured by the user after they create a new site from this template.
+backend:
+  name: github
+  # IMPORTANT: THESE ARE PLACEHOLDERS FOR YOUR CLIENT TO FILL IN
+  repo: GITHUB_USERNAME/REPOSITORY_NAME 
+  branch: main
+  # This will point to the client's authentication service
+  base_url: https://your-auth-worker.your-domain.workers.dev
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "publishDate", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }

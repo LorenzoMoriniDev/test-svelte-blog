@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+const posts = (await getCollection('blog')).sort(
+    (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+---
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>My Blog</title>
+</head>
+<body>
+    <h1>My Blog</h1>
+    <ul>
+        {posts.map((post) => (
+            <li>
+                <a href={`/posts/${post.slug}/`}>{post.data.title}</a>
+            </li>
+        ))}
+    </ul>
+</body>
+</html>
