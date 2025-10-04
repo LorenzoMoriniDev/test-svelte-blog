@@ -2,10 +2,10 @@
 backend:
   name: github
   # IMPORTANT: THESE ARE PLACEHOLDERS FOR YOUR CLIENT TO FILL IN
-  repo: GITHUB_USERNAME/REPOSITORY_NAME 
+  repo: LorenzoMoriniDev/test-svelte-blog
   branch: main
   # This will point to the client's authentication service
-  base_url: https://your-auth-worker.your-domain.workers.dev
+  base_url: hidden-math-99f2.lorenzo-morini99.workers.dev
 
 media_folder: "public/images"
 public_folder: "/images"
