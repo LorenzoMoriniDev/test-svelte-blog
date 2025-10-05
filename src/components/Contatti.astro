@@ -1,0 +1,32 @@
+---
+// src/components/Contatti.astro (COMPLETO E CORRETTO)
+---
+<section>
+  <h2>Contatti e Sede</h2>
+  
+  <form>
+    <p><strong>Modulo di contatto</strong></p>
+    <div>
+      <label for="name">Nome:</label>
+      <input type="text" id="name" name="name" />
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" />
+    </div>
+    <div>
+      <label for="message">Messaggio:</label>
+      <textarea id="message" name="message"></textarea>
+    </div>
+    <button type="submit">Invia</button>
+  </form>
+
+  <hr />
+
+  <div>
+    <p><strong>Telefono:</strong> <a href="tel:+391234567890">+39 123 456 7890</a></p>
+    <p><strong>Indirizzo:</strong> Via Roma 1, 00100 Roma (RM)</p>
+    <p>(Qui va la mappa di Google)</p>
+    <p><strong>Orari:</strong> Lun-Ven, 9:00 - 19:00</p>
+  </div>
+</section>
