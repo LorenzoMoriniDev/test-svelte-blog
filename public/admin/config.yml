@@ -7,6 +7,7 @@ backend:
   # This will point to the client's authentication service
   base_url: https://hidden-math-99f2.lorenzo-morini99.workers.dev
 
+locale: 'it'
 site_url: https://lorenzo-morini99.github.io/test-svelte-blog/
 
 media_folder: "public/images"
