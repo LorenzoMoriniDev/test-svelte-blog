@@ -1,0 +1,13 @@
+---
+// src/components/ProblemiTrattati.astro
+---
+<section>
+  <h2>Problemi Trattati</h2>
+  <ul>
+    <li>Mal di schiena</li>
+    <li>Cervicalgia</li>
+    <li>Infortuni sportivi</li>
+    <li>Dolori articolari</li>
+    <li>Cefalea muscolo-tensiva</li>
+  </ul>
+</section>
