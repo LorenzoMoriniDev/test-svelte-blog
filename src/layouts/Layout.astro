@@ -2,6 +2,8 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
+const { title } = Astro.props;
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -9,33 +11,19 @@ import Footer from '../components/Footer.astro';
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<!-- The title now comes from the page -->
+		<title>{title}</title>
 	</head>
 	<body>
-    <!-- 1. Add your Header component here -->
     <Header />
-
-    <!-- 2. The <slot /> renders the actual page content -->
 		<main>
       <slot />
     </main>
-    
-    <!-- 3. Add your Footer component here -->
     <Footer />
 	</body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-    display: flex;
-    flex-direction: column;
-	}
-  main {
-    flex-grow: 1; /* This makes the main content take up available space */
-    padding: 1rem 2rem;
-  }
+	html, body { margin: 0; width: 100%; height: 100%; }
+  main { padding: 1rem 2rem; }
 </style>
