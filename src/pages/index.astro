@@ -1,23 +1,21 @@
 ---
+// src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
-
-const posts = (await getCollection('blog')).sort(
-    (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
-);
+import Hero from '../components/Hero.astro';
+import ProblemiTrattati from '../components/ProblemiTrattati.astro';
+import Trattamenti from '../components/Trattamenti.astro';
+import ChiSono from '../components/ChiSono.astro';
+import Testimonianze from '../components/Testimonianze.astro';
+import Contatti from '../components/Contatti.astro';
 ---
 
-<Layout title="My Sveltia Blog">
-    
-    <h1>My Sveltia Blog</h1>
-    <p>This is my new blog, managed with Sveltia CMS!</p>
-    
-    <ul>
-        {posts.map((post) => (
-            <li>
-                <a href={`${import.meta.env.BASE_URL}/posts/${post.slug}/`}>{post.data.title}</a>
-            </li>
-        ))}
-    </ul>
+<Layout title="Fisioterapista Lorenzo Morini - Torna a muoverti senza dolore">
+  
+  <Hero />
+  <ProblemiTrattati />
+  <Trattamenti />
+  <ChiSono />
+  <Testimonianze />
+  <Contatti />
 
 </Layout>
