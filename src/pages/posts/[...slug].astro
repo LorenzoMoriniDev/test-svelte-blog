@@ -19,7 +19,7 @@ const { Content } = await post.render();
     <title>{post.data.title}</title>
 </head>
 <body>
-    <a href="/">&larr; Back to Home</a>
+    <a href={`${import.meta.env.BASE_URL}/`}>&larr; Back to Home</a>
     <h1>{post.data.title}</h1>
     <p>Published on: {post.data.publishDate.toDateString()}</p>
     <hr />
