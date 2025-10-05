@@ -1,16 +1,22 @@
 ---
-const currentYear = new Date().getFullYear();
+// src/components/Footer.astro
+const p_iva = "12345678901";
+const email = "info@email.it";
+const telefono = "+391234567890";
+const indirizzo = "Via Roma 1, 00100 Roma (RM)";
 ---
 <footer>
-  <p>&copy; {currentYear} Lorenzo Morini. All rights reserved.</p>
+  <p><strong>Recapiti:</strong></p>
+  <p>Indirizzo: {indirizzo}</p>
+  <p>P.IVA: {p_iva}</p>
+  <p>Email: <a href={`mailto:${email}`}>{email}</a></p>
+  <p>Telefono: <a href={`tel:${telefono}`}>{telefono}</a></p>
+  <hr />
+  <div>
+    <p>Link Social Media qui</p>
+  </div>
+  <div>
+    <a href={`${import.meta.env.BASE_URL}/privacy-policy/`}>Privacy Policy</a> | 
+    <a href={`${import.meta.env.BASE_URL}/cookie-policy/`}>Cookie Policy</a>
+  </div>
 </footer>
-
-<style>
-  footer {
-    padding: 2rem;
-    text-align: center;
-    color: #666;
-    border-top: 1px solid #ddd;
-    margin-top: 2rem;
-  }
-</style>
