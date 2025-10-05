@@ -15,8 +15,7 @@ const posts = (await getCollection('blog')).sort(
     <ul>
         {posts.map((post) => (
             <li>
-                <!-- 5. CORRECTED THE LINK TO USE BASE_URL -->
-                <a href={`${import.meta.env.BASE_URL}/blog/${post.slug}/`}>{post.data.title}</a>
+                <a href={`${import.meta.env.BASE_URL}/posts/${post.slug}/`}>{post.data.title}</a>
             </li>
         ))}
     </ul>
