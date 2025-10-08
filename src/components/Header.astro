@@ -2,16 +2,18 @@
 // src/components/Header.astro
 ---
 <header>
-  <div>
-    <p>Il Mio Logo</p>
-  </div>
-  <nav>
-    <a href={`${import.meta.env.BASE_URL}/`}>Home</a>
-    <a href={`${import.meta.env.BASE_URL}/chi-sono/`}>Chi Sono</a>
-    <a href={`${import.meta.env.BASE_URL}/trattamenti/`}>Trattamenti</a>
-    <a href={`${import.meta.env.BASE_URL}/contatti/`}>Contatti</a>
-  </nav>
-  <div>
-    <button>Prenota</button>
+  <div class="header-container">
+    <a href={`${import.meta.env.BASE_URL}/`} class="logo">Il Mio Logo</a>
+    
+    <nav>
+      <a href={`${import.meta.env.BASE_URL}/`}>Home</a>
+      <a href={`${import.meta.env.BASE_URL}/chi-sono/`}>Chi Sono</a>
+      <a href="#treatments">Trattamenti</a>
+      <a href="#contact">Contatti</a>
+    </nav>
+
+    <div>
+      <a href="#contact" class="cta-button">Prenota</a>
+    </div>
   </div>
 </header>
