@@ -9,6 +9,7 @@
   --color-background: #ffffff;
   --color-bg-section: #f8f9fa;
   --color-border: #dee2e6;
+  --header-height: 85px; 
 }
 
 /* Reset & Global Font */
@@ -21,6 +22,7 @@ body, h1, h2, h3, p, ul, li, a, button {
 body {
   background-color: var(--color-background); color: var(--color-text-primary);
   font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  padding-top: var(--header-height);
 }
 
 /* --- 1a. SCROLLBAR HANDLING --- */
