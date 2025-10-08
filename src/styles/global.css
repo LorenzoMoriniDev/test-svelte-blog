@@ -1,20 +1,18 @@
-
 /* src/styles/global.css */
 
 /* --- VARIABILI GLOBALI E RESET --- */
-/* Definisci qui i colori principali per cambiarli facilmente in futuro */
 :root {
-  --colore-primario: #007bff; /* Un blu professionale */
+  --colore-primario: #007bff;
   --colore-testo: #333;
   --colore-sfondo: #ffffff;
   --colore-grigio-chiaro: #f8f9fa;
 }
 
-/* Reset di base per un comportamento coerente su tutti i browser */
+/* Reset di base e applicazione del font globale */
 body, h1, h2, h3, p, ul, li, a, button {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
 }
 
@@ -35,6 +33,11 @@ section {
   border-bottom: 1px solid #eee;
 }
 
+/* NUOVA CLASSE DI UTILITÀ per lo sfondo */
+.bg-light {
+  background-color: var(--colore-grigio-chiaro);
+}
+
 /* --- HEADER --- */
 header {
   display: flex;
@@ -43,7 +46,7 @@ header {
   padding: 1rem 2rem;
   border-bottom: 1px solid #ddd;
 }
-
+/* ... (resto del codice header invariato) ... */
 header p {
   font-weight: bold;
   font-size: 1.2rem;
@@ -74,12 +77,12 @@ header button, .hero-button {
   font-weight: bold;
 }
 
+
 /* --- SEZIONI DELLA HOMEPAGE --- */
-/* Sezione Eroe */
 .hero-section {
   text-align: center;
   padding: 4rem 1rem;
-  background-color: var(--colore-grigio-chiaro);
+  background-color: var(--colore-grigio-chiaro); /* Mantenuto per specificità o sostituibile con .bg-light */
 }
 
 .hero-section h1 {
@@ -92,50 +95,52 @@ header button, .hero-button {
   margin-bottom: 1.5rem;
 }
 
-/* Stili per le altre sezioni */
 h2 {
   font-size: 2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   text-align: center;
 }
 
-ul {
-  list-style-position: inside;
-  padding-left: 1rem;
+h3 {
+  font-size: 1.5rem;
+  color: var(--colore-primario);
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--colore-grigio-chiaro);
+  padding-bottom: 0.5rem;
 }
 
-/* Sezione Testimonianze */
-figure {
-  margin-bottom: 1.5rem;
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+ul li {
   background-color: var(--colore-grigio-chiaro);
-  padding: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
   border-left: 4px solid var(--colore-primario);
 }
 
-/* Modulo di Contatto */
-form {
-  max-width: 500px;
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 960px;
   margin: 0 auto;
 }
-form div {
-  margin-bottom: 1rem;
+
+.grid-item {
+  text-align: left;
 }
-form input, form textarea {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+
+/* NUOVA CLASSE per la sezione "Altri disturbi" */
+.associated-disorders {
+  text-align: center;
+  margin-top: 2rem;
 }
-form button {
-  width: 100%;
-  padding: 0.75rem;
-  background-color: var(--colore-primario);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-}
+
 
 /* --- FOOTER --- */
 footer {
