@@ -1,155 +1,225 @@
 /* src/styles/global.css */
 
-/* --- VARIABILI GLOBALI E RESET --- */
+/* --- 1. VARIABILI E STILE DI BASE --- */
 :root {
-  --colore-primario: #007bff;
-  --colore-testo: #333;
+  --colore-primario: #0d5d5b; /* Verde-blu scuro, professionale e calmante */
+  --colore-accento: #158481; /* Versione più chiara per hover e accenti */
+  --colore-testo-principale: #212529; /* Quasi nero, più morbido */
+  --colore-testo-secondario: #6c757d; /* Grigio per testo meno importante */
   --colore-sfondo: #ffffff;
-  --colore-grigio-chiaro: #f8f9fa;
+  --colore-sfondo-sezione: #f8f9fa; /* Grigio molto leggero per sezioni alternate */
+  --colore-bordi: #dee2e6;
 }
 
-/* Reset di base e applicazione del font globale */
+/* Reset e Font Globale */
 body, h1, h2, h3, p, ul, li, a, button {
   margin: 0;
   padding: 0;
   font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  line-height: 1.6;
+  line-height: 1.7; /* Migliore leggibilità */
+  box-sizing: border-box; /* Comportamento box model prevedibile */
 }
 
 body {
   background-color: var(--colore-sfondo);
-  color: var(--colore-testo);
+  color: var(--colore-testo-principale);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- LAYOUT PRINCIPALE E COMPONENTI --- */
+/* --- 2. LAYOUT E CONTENITORI --- */
 .container {
-  max-width: 960px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
 }
 
 section {
-  padding: 3rem 1rem;
-  border-bottom: 1px solid #eee;
+  padding: 5rem 0; /* Più spazio verticale */
+  border-bottom: 1px solid var(--colore-bordi);
 }
 
-/* NUOVA CLASSE DI UTILITÀ per lo sfondo */
+section:last-of-type {
+  border-bottom: none;
+}
+
 .bg-light {
-  background-color: var(--colore-grigio-chiaro);
+  background-color: var(--colore-sfondo-sezione);
 }
 
-/* --- HEADER --- */
+/* --- 3. TIPOGRAFIA --- */
+h1, h2, h3 {
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+h2 {
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--colore-primario);
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--colore-testo-secondario);
+  max-width: 600px;
+  margin: 0 auto 3.5rem auto; /* Più spazio sotto il sottotitolo */
+}
+
+h3 {
+  font-size: 1.3rem;
+  color: var(--colore-testo-principale);
+  margin-bottom: 1.5rem; /* Più spazio sotto i titoli delle card */
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--colore-primario);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--colore-accento);
+}
+
+/* --- 4. HEADER E NAVIGAZIONE --- */
 header {
+  background-color: var(--colore-sfondo);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #ddd;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--colore-bordi);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
 }
-/* ... (resto del codice header invariato) ... */
-header p {
+
+header .logo { /* Assumendo che tu abbia un div o p con class="logo" */
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  color: var(--colore-testo-principale);
 }
 
 header nav {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 header nav a {
   text-decoration: none;
-  color: var(--colore-testo);
-  font-weight: 500;
+  color: var(--colore-testo-principale);
+  font-weight: 700;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.3s ease, border-bottom-color 0.3s ease;
 }
 
 header nav a:hover {
   color: var(--colore-primario);
+  border-bottom-color: var(--colore-primario);
 }
 
-header button, .hero-button {
+/* --- 5. BOTTONI --- */
+.button {
+  display: inline-block;
   background-color: var(--colore-primario);
   color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 5px;
+  border: 2px solid var(--colore-primario);
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
   cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--colore-accento);
+  border-color: var(--colore-accento);
+  color: white;
+}
+
+.button-outline {
+  background-color: transparent;
+  color: var(--colore-primario);
+}
+
+.button-outline:hover {
+  background-color: var(--colore-primario);
+  color: white;
+}
+
+/* --- 6. COMPONENTI SPECIFICI (CARDS) --- */
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background-color: var(--colore-sfondo);
+  border: 1px solid var(--colore-bordi);
+  border-radius: 8px;
+  padding: 2rem;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+}
+
+.card ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.card li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 0.75rem;
+  color: var(--colore-testo-secondario);
+}
+
+.card li:last-child {
+  margin-bottom: 0;
+}
+
+.card li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: var(--colore-primario);
   font-weight: bold;
 }
 
-
-/* --- SEZIONI DELLA HOMEPAGE --- */
-.hero-section {
-  text-align: center;
-  padding: 4rem 1rem;
-  background-color: var(--colore-grigio-chiaro); /* Mantenuto per specificità o sostituibile con .bg-light */
-}
-
-.hero-section h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.hero-section p {
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
-}
-
-h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-h3 {
-  font-size: 1.5rem;
-  color: var(--colore-primario);
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid var(--colore-grigio-chiaro);
-  padding-bottom: 0.5rem;
-}
-
-ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-ul li {
-  background-color: var(--colore-grigio-chiaro);
-  padding: 0.75rem 1rem;
-  border-radius: 5px;
-  margin-bottom: 0.5rem;
-  border-left: 4px solid var(--colore-primario);
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  max-width: 960px;
-  margin: 0 auto;
-}
-
-.grid-item {
-  text-align: left;
-}
-
-/* NUOVA CLASSE per la sezione "Altri disturbi" */
-.associated-disorders {
-  text-align: center;
-  margin-top: 2rem;
-}
-
-
-/* --- FOOTER --- */
+/* --- 7. FOOTER --- */
 footer {
-  background-color: #333;
-  color: #eee;
+  background-color: #212529; /* Sfondo scuro per un footer classico */
+  color: var(--colore-sfondo-sezione);
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 3rem 1.5rem;
+}
+
+footer p {
+  margin: 0;
 }
 
 footer a {
-  color: #eee;
+  color: white;
+  text-decoration: underline;
+}
+
+footer a:hover {
+  color: var(--colore-bordi);
 }
