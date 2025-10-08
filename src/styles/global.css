@@ -9,8 +9,6 @@
   --color-background: #ffffff;
   --color-bg-section: #f8f9fa;
   --color-border: #dee2e6;
-
-  /* MODIFICA CHIAVE 1: Definiamo l'altezza dell'header qui */
   --header-height: 85px; 
 }
 
@@ -24,8 +22,6 @@ body, h1, h2, h3, p, ul, li, a, button {
 body {
   background-color: var(--color-background); color: var(--color-text-primary);
   font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-  
-  /* MODIFICA CHIAVE 2: Applichiamo il padding usando la variabile */
   padding-top: var(--header-height);
 }
 
@@ -35,29 +31,11 @@ body {
     overflow-y: scroll;
   }
 }
-
-* {
-  scrollbar-width: thin;
-  scrollbar-color: transparent transparent;
-}
-
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: transparent;
-  border-radius: 20px;
-  border: 3px solid transparent;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent);
-}
+*{scrollbar-width:thin;scrollbar-color:var(--color-primary)transparent}
+::-webkit-scrollbar{width:12px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--color-primary);border-radius:20px;border:3pxsolidtransparent}
+::-webkit-scrollbar-thumb:hover{background:var(--color-accent)}
 
 /* --- 2. LAYOUT & CONTAINERS --- */
 .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
@@ -76,14 +54,9 @@ a:hover { color: var(--color-accent); }
 
 /* --- 4. HEADER & MOBILE-FIRST NAVIGATION --- */
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   background-color: var(--color-background);
   border-bottom: 1px solid var(--color-border);
-  z-index: 1000;
-  width: 100%;
+  position: sticky; top: 0; z-index: 1000; width: 100%;
 }
 .header-container {
   display: flex; justify-content: space-between; align-items: center;
@@ -100,7 +73,7 @@ header {
 
 /* STILI MOBILE DI DEFAULT */
 .hamburger-menu {
-  display: flex; /* VISIBILE DI DEFAULT */
+  display: flex;
   flex-direction: column; justify-content: space-around;
   width: 2rem; height: 2rem; background: transparent; border: none;
   cursor: pointer; padding: 0; position: relative; z-index: 1001;
@@ -120,11 +93,15 @@ header nav {
   justify-content: center; align-items: center;
   gap: 2.5rem;
   opacity: 0; visibility: hidden; /* NASCOSTO DI DEFAULT */
+  /* 
+    >>> CHANGE #1 of 2: The 'transition' property has been REMOVED from the base rule.
+    This is the key change that prevents the menu from briefly appearing when you resize 
+    the window from desktop to mobile, as it no longer tries to animate the opacity change.
+  */
   z-index: 1000;
 }
 header nav.is-open {
   opacity: 1; visibility: visible;
-  transition: opacity 0.3s ease;
 }
 header nav a {
   font-size: 1.5rem;
@@ -136,14 +113,12 @@ header nav a {
 .hamburger-menu[aria-expanded="true"] .hamburger-line:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
 
 /* --- 4a. DESKTOP NAVIGATION STYLES --- */
-/* Aggiungiamo stili desktop solo se lo schermo è abbastanza largo */
 @media (min-width: 993px) {
   .hamburger-menu {
-    display: none; /* NASCONDIAMO l'hamburger su desktop */
+    display: none;
   }
 
   header nav {
-    /* Resettiamo tutti gli stili da overlay */
     position: static;
     width: auto; height: auto;
     background-color: transparent;
@@ -152,7 +127,7 @@ header nav a {
     justify-content: flex-end;
     gap: 2rem;
     opacity: 1; visibility: visible;
-    transition: none;
+    transition: none; /* Explicitly remove any transition on desktop */
   }
   header nav a {
     font-size: 1rem;
@@ -166,6 +141,20 @@ header nav a {
     border-bottom-color: var(--color-primary);
   }
 }
+
+/* 
+  >>> CHANGE #2 of 2: A new media query is added for screens BELOW the desktop breakpoint.
+  This block applies the smooth transition ONLY on viewports where the hamburger menu 
+  is present. This makes the animation smoother and ensures it doesn't interfere with
+  the desktop styles during a resize. I've used a cubic-bezier function for a more
+  professional feel.
+*/
+@media (max-width: 992px) {
+  header nav {
+    transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
 
 /* --- 5. HERO SECTION --- */
 .hero-container {
