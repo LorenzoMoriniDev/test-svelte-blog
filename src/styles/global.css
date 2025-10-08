@@ -1,34 +1,34 @@
 /* src/styles/global.css */
 
-/* --- 1. VARIABILI E STILE DI BASE --- */
+/* --- 1. VARIABLES & BASE STYLES --- */
 :root {
-  --colore-primario: #0d5d5b; /* Verde-blu scuro, professionale e calmante */
-  --colore-accento: #158481; /* Versione più chiara per hover e accenti */
-  --colore-testo-principale: #212529; /* Quasi nero, più morbido */
-  --colore-testo-secondario: #6c757d; /* Grigio per testo meno importante */
-  --colore-sfondo: #ffffff;
-  --colore-sfondo-sezione: #f8f9fa; /* Grigio molto leggero per sezioni alternate */
-  --colore-bordi: #dee2e6;
+  --color-primary: #0d5d5b;      /* Was --colore-primario */
+  --color-accent: #158481;       /* Was --colore-accento */
+  --color-text-primary: #212529; /* Was --colore-testo-principale */
+  --color-text-secondary: #6c757d;/* Was --colore-testo-secondario */
+  --color-background: #ffffff;   /* Was --colore-sfondo */
+  --color-bg-section: #f8f9fa;   /* Was --colore-sfondo-sezione */
+  --color-border: #dee2e6;       /* Was --colore-bordi */
 }
 
-/* Reset e Font Globale */
+/* Reset & Global Font */
 body, h1, h2, h3, p, ul, li, a {
   margin: 0;
   padding: 0;
   font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.7;
-  box-sizing: border-box; /* Comportamento box model prevedibile */
+  box-sizing: border-box;
 }
 
 body {
-  background-color: var(--colore-sfondo);
-  color: var(--colore-testo-principale);
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- 2. LAYOUT E CONTENITORI --- */
+/* --- 2. LAYOUT & CONTAINERS --- */
 .container {
   max-width: 1100px;
   margin: 0 auto;
@@ -36,8 +36,8 @@ body {
 }
 
 section {
-  padding: 5rem 0; /* Più spazio verticale */
-  border-bottom: 1px solid var(--colore-bordi);
+  padding: 5rem 0;
+  border-bottom: 1px solid var(--color-border);
 }
 
 section:last-of-type {
@@ -45,10 +45,10 @@ section:last-of-type {
 }
 
 .bg-light {
-  background-color: var(--colore-sfondo-sezione);
+  background-color: var(--color-bg-section);
 }
 
-/* --- 3. TIPOGRAFIA --- */
+/* --- 3. TYPOGRAPHY --- */
 h1, h2, h3 {
   font-weight: 700;
   line-height: 1.3;
@@ -58,76 +58,51 @@ h2 {
   font-size: 2.25rem;
   margin-bottom: 1rem;
   text-align: center;
-  color: var(--colore-primario);
+  color: var(--color-primary);
 }
 
 .section-subtitle {
   text-align: center;
   font-size: 1.1rem;
-  color: var(--colore-testo-secondario);
+  color: var(--color-text-secondary);
   max-width: 600px;
-  margin: 0 auto 3.5rem auto; /* Più spazio sotto il sottotitolo */
+  margin: 0 auto 3.5rem auto;
 }
 
 h3 {
   font-size: 1.3rem;
-  color: var(--colore-testo-principale);
-  margin-bottom: 1.5rem; /* Più spazio sotto i titoli delle card */
+  color: var(--color-text-primary);
+  margin-bottom: 1.5rem;
 }
 
-p {
-  margin-bottom: 1rem;
-}
+p { margin-bottom: 1rem; }
+a { color: var(--color-primary); text-decoration: none; transition: color 0.3s ease; }
+a:hover { color: var(--color-accent); }
 
-a {
-  color: var(--colore-primario);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: var(--colore-accento);
-}
-
-/* --- 4. HEADER E NAVIGAZIONE --- */
+/* --- 4. HEADER & NAVIGATION --- */
 header {
-  background-color: var(--colore-sfondo);
+  background-color: var(--color-background);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
-  border-bottom: 1px solid var(--colore-bordi);
+  border-bottom: 1px solid var(--color-border);
   position: sticky;
   top: 0;
   z-index: 100;
   width: 100%;
 }
 
-header .logo { /* Aggiungi class="logo" al tuo tag p o div del logo nell'header */
+header .logo {
   font-weight: bold;
   font-size: 1.5rem;
-  color: var(--colore-testo-principale);
+  color: var(--color-text-primary);
   text-decoration: none;
 }
 
-header nav {
-  display: flex;
-  gap: 2rem;
-}
-
-header nav a {
-  text-decoration: none;
-  color: var(--colore-testo-principale);
-  font-weight: 700;
-  padding-bottom: 5px;
-  border-bottom: 2px solid transparent;
-  transition: color 0.3s ease, border-bottom-color 0.3s ease;
-}
-
-header nav a:hover {
-  color: var(--colore-primario);
-  border-bottom-color: var(--colore-primario);
-}
+header nav { display: flex; gap: 2rem; }
+header nav a { text-decoration: none; color: var(--color-text-primary); font-weight: 700; padding-bottom: 5px; border-bottom: 2px solid transparent; transition: color 0.3s ease, border-bottom-color 0.3s ease; }
+header nav a:hover { color: var(--color-primary); border-bottom-color: var(--color-primary); }
 
 /* --- 5. HERO SECTION --- */
 .hero-container {
@@ -138,19 +113,20 @@ header nav a:hover {
   min-height: 80vh;
   text-align: center;
   padding: 4rem 1.5rem;
-  background-color: var(--colore-sfondo-sezione);
-  border-bottom: 1px solid var(--colore-bordi);
-  position: relative; /* Necessario per il posizionamento assoluto dello scroll-indicator */
+  background-color: var(--color-bg-section);
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
 }
+
 .hero-content { max-width: 800px; }
-.hero-content h1 { font-size: 2.8rem; color: var(--colore-primario); margin-bottom: 1.5rem; font-weight: 700; }
-.hero-subtitle { font-size: 1.2rem; color: var(--colore-testo-principale); line-height: 1.8; }
+.hero-content h1 { font-size: 2.8rem; color: var(--color-primary); margin-bottom: 1.5rem; font-weight: 700; }
+.hero-subtitle { font-size: 1.2rem; color: var(--color-text-primary); line-height: 1.8; }
 .scroll-indicator { position: absolute; bottom: 30px; font-size: 2rem; }
-.scroll-indicator a { color: var(--colore-testo-secondario); animation: bounce 2s infinite; }
+.scroll-indicator a { color: var(--color-text-secondary); animation: bounce 2s infinite; }
 @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-15px); } 60% { transform: translateY(-5px); } }
 @media (max-width: 768px) { .hero-content h1 { font-size: 2.2rem; } .hero-subtitle { font-size: 1.1rem; } }
 
-/* --- 6. COMPONENTI CARDS (PER PATOLOGIE E TRATTAMENTI) --- */
+/* --- 6. CONTENT CARDS (FOR PATHOLOGIES & TREATMENTS) --- */
 .content-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -158,63 +134,53 @@ header nav a:hover {
 }
 
 .card {
-  background-color: var(--colore-sfondo);
-  border: 1px solid var(--colore-bordi);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
   border-radius: 8px;
   padding: 2rem;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07); }
 .card ul { list-style-type: none; padding: 0; }
-.card li { position: relative; padding-left: 25px; margin-bottom: 0.75rem; color: var(--colore-testo-secondario); }
+.card li { position: relative; padding-left: 25px; margin-bottom: 0.75rem; color: var(--color-text-secondary); }
 .card li:last-child { margin-bottom: 0; }
-.card li::before { content: '✓'; position: absolute; left: 0; top: 1px; color: var(--colore-primario); font-weight: bold; }
+.card li::before { content: '✓'; position: absolute; left: 0; top: 1px; color: var(--color-primary); font-weight: bold; }
 
-/* --- 7. SEZIONE CONTATTI --- */
+/* --- 7. CONTACT SECTION --- */
 .contact-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  align-items: flex-start; /* Allinea gli elementi all'inizio */
+  align-items: flex-start;
   margin-top: 2rem;
 }
-.contact-details h3 { border-bottom: 2px solid var(--colore-primario); padding-bottom: 0.5rem; display: inline-block; margin-bottom: 2rem; }
-.contact-details p { font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--colore-testo-secondario); }
-.contact-details p strong { color: var(--colore-testo-principale); display: block; font-weight: 700; margin-bottom: 0.25rem; }
-.contact-details p span, .contact-details p a { color: var(--colore-testo-secondario); }
+
+.contact-details h3 { border-bottom: 2px solid var(--color-primary); padding-bottom: 0.5rem; display: inline-block; margin-bottom: 2rem; }
+.contact-details p { font-size: 1.1rem; margin-bottom: 1.5rem; }
+.contact-details p strong { color: var(--color-text-primary); display: block; font-weight: 700; margin-bottom: 0.25rem; }
+.contact-details p span, .contact-details p a { color: var(--color-text-secondary); }
 .map-placeholder {
   width: 100%;
   height: 400px;
   background-color: #e9ecef;
-  border: 1px solid var(--colore-bordi);
+  border: 1px solid var(--color-border);
   border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--colore-testo-secondario);
+  color: var(--color-text-secondary);
 }
 @media (max-width: 768px) { .contact-layout { grid-template-columns: 1fr; } }
 
 /* --- 8. FOOTER --- */
 footer {
-  background-color: #212529; /* Sfondo scuro per un footer classico */
-  color: var(--colore-sfondo-sezione);
+  background-color: #212529;
+  color: var(--color-bg-section);
   text-align: center;
   padding: 3rem 1.5rem;
-  border-top: 1px solid var(--colore-bordi);
+  border-top: 1px solid var(--color-border);
 }
 
-footer p {
-  margin-bottom: 0.5rem;
-}
-
-footer a {
-  color: white;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-}
-
-footer a:hover {
-  color: var(--colore-bordi);
-}
+footer p { margin-bottom: 0.5rem; }
+footer a { color: white; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+footer a:hover { color: var(--color-border); }
