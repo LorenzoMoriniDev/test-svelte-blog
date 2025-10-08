@@ -189,7 +189,7 @@ header nav a {
 @media (max-width: 768px) { .contact-layout { grid-template-columns: 1fr; } }
 
 /* --- 8. FOOTER --- */
-footer { background-color: #212529; color: #ced4da; padding: 4rem 1.5rem; border-top: 1px solid var(--color-border); }
+footer { background-color: #212529; color: #ced4da; padding: 3rem 1.5rem; border-top: 1px solid var(--color-border); }
 .footer-content { max-width: 800px; margin: 0 auto; text-align: center; }
 .footer-contact p { margin-bottom: 0.75rem; }
 .footer-contact strong { color: #f8f9fa; }
