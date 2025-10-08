@@ -9,6 +9,8 @@
   --color-background: #ffffff;
   --color-bg-section: #f8f9fa;
   --color-border: #dee2e6;
+
+  /* MODIFICA CHIAVE 1: Definiamo l'altezza dell'header qui */
   --header-height: 85px; 
 }
 
@@ -22,6 +24,8 @@ body, h1, h2, h3, p, ul, li, a, button {
 body {
   background-color: var(--color-background); color: var(--color-text-primary);
   font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  
+  /* MODIFICA CHIAVE 2: Applichiamo il padding usando la variabile */
   padding-top: var(--header-height);
 }
 
@@ -31,11 +35,10 @@ body {
     overflow-y: scroll;
   }
 }
-*{scrollbar-width:thin;scrollbar-color:var(--color-primary)transparent}
-::-webkit-scrollbar{width:12px}
-::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:var(--color-primary);border-radius:20px;border:3pxsolidtransparent}
-::-webkit-scrollbar-thumb:hover{background:var(--color-accent)}
+::-webkit-scrollbar { width: 12px; }
+::-webkit-scrollbar-track { background: var(--color-bg-section); }
+::-webkit-scrollbar-thumb { background-color: var(--color-primary); border-radius: 20px; border: 3px solid var(--color-bg-section); }
+::-webkit-scrollbar-thumb:hover { background-color: var(--color-accent); }
 
 /* --- 2. LAYOUT & CONTAINERS --- */
 .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
@@ -54,9 +57,14 @@ a:hover { color: var(--color-accent); }
 
 /* --- 4. HEADER & MOBILE-FIRST NAVIGATION --- */
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   background-color: var(--color-background);
   border-bottom: 1px solid var(--color-border);
-  position: sticky; top: 0; z-index: 1000; width: 100%;
+  z-index: 1000;
+  width: 100%;
 }
 .header-container {
   display: flex; justify-content: space-between; align-items: center;
