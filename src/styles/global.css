@@ -177,13 +177,13 @@ header nav a {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1.1); 
   min-width: 100%;
   min-height: 100%;
   width: auto;
   height: auto;
-  z-index: 1; /* Sta alla base */
-}
+  z-index: 1;
+  filter: blur(4px); 
 
 .hero-overlay {
   position: absolute;
