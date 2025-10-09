@@ -1,13 +1,11 @@
 ---
 // src/components/Hero.astro
 
-// Astro leggerà il tuo file di configurazione e sostituirà
-// import.meta.env.BASE_URL con "/test-svelte-blog"
 const videoSrc = `${import.meta.env.BASE_URL}/videos/hero-background.webm`;
 ---
 <section class="hero-container">
   <video class="hero-video" autoplay loop muted playsinline>
-    <source src={videoSrc} type="video/mp4">
+    <source src={videoSrc} type="video/webm">
     Il tuo browser non supporta i video in background.
   </video>
 
@@ -21,9 +19,5 @@ const videoSrc = `${import.meta.env.BASE_URL}/videos/hero-background.webm`;
       Il dolore non è un nemico da sopprimere, ma un messaggio da comprendere.
       <br>Lontano da protocolli standardizzati, ti guido a trovare la vera causa del tuo squilibrio per liberare il potenziale di auto-guarigione del tuo corpo.
     </p>
-  </div>
-  
-  <div class="scroll-indicator">
-    <a href="#chi-sono" aria-label="Scorri alla prossima sezione">&#x2193;</a>
   </div>
 </section>
