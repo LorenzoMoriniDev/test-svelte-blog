@@ -11,18 +11,18 @@
       <span class="hamburger-line"></span>
     </button>
 
+    <!-- NAVIGAZIONE DEFINITIVA CON I LINK CORRETTI -->
     <nav id="main-nav">
       <a href={`${import.meta.env.BASE_URL}/`}>Home</a>
-      <a href={`${import.meta.env.BASE_URL}/chi-sono/`}>Chi Sono</a>
-      <a href="#treatments">Trattamenti</a>
-      <a href="#contact">Contatti</a>
-      <!-- Bottone CTA spostato qui dentro -->
-      <a href="#contact" class="cta-button">Prenota</a>
+      <a href={`${import.meta.env.BASE_URL}/#chi-sono`}>Chi Sono</a>
+      <a href={`${import.meta.env.BASE_URL}/blog/`}>Articoli</a>
+      <a href={`${import.meta.env.BASE_URL}/#contact`} class="cta-button">Prenota</a>
     </nav>
   </div>
 </header>
 
 <script>
+  // Lo script per l'hamburger menu rimane identico e non va toccato
   const hamburgerButton = document.getElementById('hamburger-button');
   const mainNav = document.getElementById('main-nav');
   const navLinks = mainNav.querySelectorAll('a');
@@ -31,13 +31,14 @@
     const isExpanded = hamburgerButton.getAttribute('aria-expanded') === 'true';
     hamburgerButton.setAttribute('aria-expanded', String(!isExpanded));
     mainNav.classList.toggle('is-open');
-    document.body.classList.toggle('no-scroll'); // Blocca lo scroll del body
+    document.body.classList.toggle('no-scroll');
   }
 
   hamburgerButton.addEventListener('click', toggleMenu);
 
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
+      // Chiude il menu solo se è aperto
       if (mainNav.classList.contains('is-open')) {
         toggleMenu();
       }
