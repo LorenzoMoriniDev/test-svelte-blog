@@ -515,3 +515,20 @@ footer hr { border: 0; border-top: 1px solid #495057; margin: 2rem auto; width: 
   color: var(--color-primary);
   text-decoration: underline;
 }
+
+/* --- 16. SINGLE POST - CONTENT IMAGES --- */
+.post-body img {
+  /* La regola più importante: l'immagine non sarà mai più larga del suo contenitore */
+  max-width: 100%;
+  
+  /* Mantiene le proporzioni corrette quando l'immagine viene ridimensionata */
+  height: auto;
+  
+  /* Permette di centrare l'immagine e gestire i margini correttamente */
+  display: block;
+  margin: 2.5rem auto; /* Aggiunge spazio sopra/sotto e centra l'immagine */
+  
+  /* Stile coerente con il resto del sito */
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
