@@ -296,7 +296,7 @@ footer hr { border: 0; border-top: 1px solid #495057; margin: 2rem auto; width: 
 /* --- 11. TESTIMONIALS SECTION --- */
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
   gap: 2.5rem;
   max-width: 1200px;
   margin-left: auto;
