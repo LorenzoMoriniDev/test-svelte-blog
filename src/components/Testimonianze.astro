@@ -2,11 +2,14 @@
 // src/components/Testimonianze.astro
 const bgImage = `${import.meta.env.BASE_URL}/images/testimonianze-bg.jpg`;
 ---
-<section 
-  id="testimonianze" 
-  class="bg-light section-with-bg"
-  style={`--bg-image: url(${bgImage})`}
->
+<section id="testimonianze" class="section-with-bg">
+
+  <!-- Contenitore dedicato per il background -->
+  <div class="section-background" style={`background-image: url(${bgImage})`}>
+    <div class="section-overlay"></div>
+  </div>
+
+  <!-- Contenuto in primo piano -->
   <div class="container">
     <h2>Dicono di me</h2>
     <p class="section-subtitle">
