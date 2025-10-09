@@ -184,6 +184,7 @@ header nav a {
   /* METODO CORRETTO: Forza il video a coprire l'area senza distorcerlo */
   object-fit: cover; 
   filter: blur(4px);
+  transform: scale(1.05);
 }
 
 .hero-overlay {
