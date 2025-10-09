@@ -1,0 +1,42 @@
+---
+// src/pages/blog/[...slug].astro
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+<Layout title={post.data.title}>
+  <!-- STRUTTURA PROFESSIONALE PER IL CONTENUTO DEL POST -->
+  <section id="post-content">
+    <div class="container post-container">
+
+      <!-- LINK INDIETRO CORRETTO: Punta alla lista degli articoli, non alla home -->
+      <a href={`${import.meta.env.BASE_URL}/blog/`} class="back-to-blog-link">&larr; Torna agli articoli</a>
+
+      <div class="post-header">
+        <h1>{post.data.title}</h1>
+        <p class="post-date">
+          Pubblicato il {post.data.publishDate.toLocaleDateString('it-IT', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })}
+        </p>
+      </div>
+      <div class="post-body">
+        <!-- Qui viene renderizzato il tuo contenuto Markdown -->
+        <Content />
+      </div>
+
+    </div>
+  </section>
+</Layout>
