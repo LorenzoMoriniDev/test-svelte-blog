@@ -243,8 +243,13 @@ footer hr { border: 0; border-top: 1px solid #495057; margin: 2rem auto; width: 
 /* --- 11. TESTIMONIALS SECTION --- */
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem; /* Aumentato lo spazio tra le card */
+  
+  /* Aumentata la larghezza massima per dare più respiro */
+  max-width: 1200px; 
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .testimonial-card {
