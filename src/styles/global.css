@@ -377,12 +377,3 @@ footer hr { border: 0; border-top: 1px solid #495057; margin: 2rem auto; width: 
   color: #ffffff;
   text-shadow: 0 1px 3px rgba(0,0,0,0.4);
 }
-
-/* Immagini specifiche per ogni sezione */
-#trattamenti.section-with-bg {
-  background-image: url('../assets/images/bg-trattamenti.jpg');
-}
-
-#testimonianze.section-with-bg {
-  background-image: url('../assets/images/bg-testimonianze.jpg');
-}
