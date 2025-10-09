@@ -216,26 +216,6 @@ header nav a {
   text-shadow: 0 1px 5px rgba(0,0,0,0.5);
 }
 
-.scroll-indicator {
-  position: absolute;
-  bottom: 30px;
-  font-size: 2rem;
-  z-index: 3;
-}
-.scroll-indicator a {
-  color: rgba(255, 255, 255, 0.7);
-  animation: bounce 2s infinite;
-}
-.scroll-indicator a:hover {
-  color: #ffffff;
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-  40% { transform: translateY(-15px); }
-  60% { transform: translateY(-5px); }
-}
-
 @media (max-width: 768px) {
   .hero-content h1 { font-size: 2.2rem; }
   .hero-subtitle { font-size: 1.1rem; }
