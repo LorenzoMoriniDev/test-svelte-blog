@@ -223,7 +223,7 @@ header nav a {
 }
 
 /* --- 6. CONTENT CARDS (FOR PATHOLOGIES & TREATMENTS) --- */
-.content-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.content-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 2rem; }
 .card { background-color: var(--color-background); border: 1px solid var(--color-border); border-radius: 8px; padding: 2rem; transition: box-shadow 0.3s ease, transform 0.3s ease; }
 .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07); }
 .card ul { list-style-type: none; padding: 0; }
