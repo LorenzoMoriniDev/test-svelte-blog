@@ -1,23 +1,37 @@
 ---
+// src/pages/blog/index.astro
 import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro'; // Assumendo che il layout sia in src/layouts/
+
+// Prende i post da 'src/content/blog' e li ordina
 const posts = (await getCollection('blog')).sort(
     (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 );
 ---
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>My Blog</title>
-</head>
-<body>
-    <h1>My Blog</h1>
-    <ul>
+<Layout title="Articoli | Il Mio Sito">
+  <section id="blog-listing">
+    <div class="container">
+      <h2>Articoli e Approfondimenti</h2>
+      <p class="section-subtitle">
+        Consigli, esercizi e notizie dal mondo della fisioterapia per aiutarti a stare meglio, ogni giorno.
+      </p>
+
+      <div class="posts-grid">
         {posts.map((post) => (
-            <li>
-                <a href={`/posts/${post.slug}/`}>{post.data.title}</a>
-            </li>
+          <a href={`${import.meta.env.BASE_URL}/blog/${post.slug}/`} class="post-card">
+            <div class="post-card-content">
+              <h3>{post.data.title}</h3>
+              <p class="post-date">
+                {post.data.publishDate.toLocaleDateString('it-IT', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </p>
+            </div>
+          </a>
         ))}
-    </ul>
-</body>
-</html>
+      </div>
+    </div>
+  </section>
+</Layout>
