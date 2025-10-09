@@ -1,12 +1,15 @@
 ---
 // src/components/Trattamenti.astro
-const bgImage = `${import.meta.env.BASE_URL}/images/trattamenti-bg.jpg`;
+const bgImage = `${import.meta.env.BASE_URL}/images/bg-trattamenti.jpg`;
 ---
-<section 
-  id="treatments" 
-  class="bg-light section-with-bg" 
-  style={`--bg-image: url(${bgImage})`}
->
+<section id="treatments" class="section-with-bg">
+
+  <!-- Contenitore dedicato per il background (impossibile da sbagliare) -->
+  <div class="section-background" style={`background-image: url(${bgImage})`}>
+    <div class="section-overlay"></div>
+  </div>
+
+  <!-- Contenuto in primo piano -->
   <div class="container">
     <h2>Approccio e Trattamenti</h2>
     <p class="section-subtitle">
