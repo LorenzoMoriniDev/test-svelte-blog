@@ -1,7 +1,19 @@
 ---
 // src/components/Hero.astro
+
+const videoSrc = "/videos/hero-background.mp4"; // Percorso del video nella cartella public
 ---
 <section class="hero-container">
+  <!-- Video in Background -->
+  <video class="hero-video" autoplay loop muted playsinline>
+    <source src={videoSrc} type="video/mp4">
+    Il tuo browser non supporta i video in background.
+  </video>
+
+  <!-- Overlay scuro per leggibilità testo -->
+  <div class="hero-overlay"></div>
+
+  <!-- Contenuto testuale -->
   <div class="hero-content">
     <h1>
       Ascolta il tuo corpo.<br>Ritrova il tuo equilibrio naturale.
