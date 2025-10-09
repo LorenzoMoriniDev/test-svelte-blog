@@ -344,34 +344,37 @@ footer hr { border: 0; border-top: 1px solid #495057; margin: 2rem auto; width: 
   color: var(--color-text-primary);
 }
 
-/* AGGIUNGI QUESTO BLOCCO ALLA FINE DEL FILE */
-/* --- 12. BACKGROUND IMAGE SECTIONS --- */
+/* --- 12. BACKGROUND IMAGE SECTIONS (FIXED) --- */
 .section-with-bg {
   position: relative;
-  background-position: center center;
-  background-size: cover;
-  background-attachment: fixed; /* Effetto Parallax */
+  overflow: hidden;
 }
 
-/* Overlay per la leggibilità del testo */
-.section-with-bg::before {
-  content: '';
+.section-background {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(10, 20, 20, 0.8); /* Overlay scuro e desaturato */
   z-index: 1;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  /* La magia avviene qui: usa la variabile passata dal componente */
+  background-image: var(--bg-image);
 }
 
-/* Assicura che il contenuto sia sopra l'overlay */
+.section-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 20, 20, 0.8);
+}
+
 .section-with-bg .container {
   position: relative;
   z-index: 2;
 }
 
-/* Cambia colore solo ai titoli, lasciando le card invariate */
 .section-with-bg h2,
 .section-with-bg .section-subtitle {
   color: #ffffff;
