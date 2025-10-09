@@ -4,13 +4,16 @@
 const videoSrc = `${import.meta.env.BASE_URL}/videos/hero-background.webm`;
 ---
 <section class="hero-container">
-  <video class="hero-video" autoplay loop muted playsinline>
-    <source src={videoSrc} type="video/webm">
-    Il tuo browser non supporta i video in background.
-  </video>
+  
+  <!-- NUOVO Contenitore per gli elementi di background -->
+  <div class="hero-background">
+    <video class="hero-video" autoplay loop muted playsinline>
+      <source src={videoSrc} type="video/webm">
+    </video>
+    <div class="hero-overlay"></div>
+  </div>
 
-  <div class="hero-overlay"></div>
-
+  <!-- Contenuto in primo piano -->
   <div class="hero-content">
     <h1>
       Ascolta il tuo corpo.<br>Ritrova il tuo equilibrio naturale.
@@ -20,4 +23,5 @@ const videoSrc = `${import.meta.env.BASE_URL}/videos/hero-background.webm`;
       <br>Lontano da protocolli standardizzati, ti guido a trovare la vera causa del tuo squilibrio per liberare il potenziale di auto-guarigione del tuo corpo.
     </p>
   </div>
+  
 </section>
