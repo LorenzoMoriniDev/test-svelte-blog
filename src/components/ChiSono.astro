@@ -1,5 +1,6 @@
 ---
 // src/components/ChiSono.astro
+const ritrattoSrc = `${import.meta.env.BASE_URL}/images/ritratto-fisioterapista.jpg`;
 ---
 <section id="chi-sono">
   <div class="container">
@@ -9,8 +10,12 @@
     </p>
 
     <div class="about-layout">
-      <div class="about-image-placeholder">
-        <!-- IMMAGINE PROFESSIONALE -->
+      <div class="about-image-container">
+        <img 
+          src={ritrattoSrc} 
+          alt="Ritratto professionale del fisioterapista" 
+          class="about-image"
+        />
       </div>
 
       <div class="about-content">
