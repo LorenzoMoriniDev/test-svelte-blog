@@ -257,6 +257,7 @@ footer hr { border: 0; border-top: 1px solid #495057; margin: 2rem auto; width: 
 /* --- 9. UTILITY CLASSES --- */
 .no-scroll { overflow: hidden; }
 
+/* SOSTITUISCI QUESTA SEZIONE INTERA */
 /* --- 10. ABOUT ME SECTION --- */
 .about-layout {
   display: grid;
@@ -266,15 +267,18 @@ footer hr { border: 0; border-top: 1px solid #495057; margin: 2rem auto; width: 
   margin-top: 3rem;
 }
 
-.about-image-placeholder {
+.about-image-container {
   width: 100%;
-  height: 400px;
-  background-color: var(--color-border);
+  max-width: 400px;
   border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--color-text-secondary);
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.about-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .about-content h3 {
@@ -284,11 +288,8 @@ footer hr { border: 0; border-top: 1px solid #495057; margin: 2rem auto; width: 
 
 @media (max-width: 768px) {
   .about-layout {
-    grid-template-columns: 1fr; /* Colonne impilate su mobile */
+    grid-template-columns: 1fr;
     gap: 2rem;
-  }
-  .about-image-placeholder {
-    height: 300px;
   }
 }
 
@@ -341,4 +342,47 @@ footer hr { border: 0; border-top: 1px solid #495057; margin: 2rem auto; width: 
   text-align: right;
   font-weight: bold;
   color: var(--color-text-primary);
+}
+
+/* AGGIUNGI QUESTO BLOCCO ALLA FINE DEL FILE */
+/* --- 12. BACKGROUND IMAGE SECTIONS --- */
+.section-with-bg {
+  position: relative;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed; /* Effetto Parallax */
+}
+
+/* Overlay per la leggibilità del testo */
+.section-with-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 20, 20, 0.8); /* Overlay scuro e desaturato */
+  z-index: 1;
+}
+
+/* Assicura che il contenuto sia sopra l'overlay */
+.section-with-bg .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Cambia colore solo ai titoli, lasciando le card invariate */
+.section-with-bg h2,
+.section-with-bg .section-subtitle {
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+/* Immagini specifiche per ogni sezione */
+#trattamenti.section-with-bg {
+  background-image: url('../assets/images/bg-trattamenti.jpg');
+}
+
+#testimonianze.section-with-bg {
+  background-image: url('../assets/images/bg-testimonianze.jpg');
 }
