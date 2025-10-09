@@ -7,7 +7,14 @@ const videoSrc = `${import.meta.env.BASE_URL}/videos/hero-background.webm`;
   
   <!-- NUOVO Contenitore per gli elementi di background -->
   <div class="hero-background">
-    <video class="hero-video" autoplay loop muted playsinline>
+    <video 
+      class="hero-video" 
+      autoplay 
+      loop 
+      muted 
+      playsinline
+      fetchpriority="high"
+    >
       <source src={videoSrc} type="video/webm">
     </video>
     <div class="hero-overlay"></div>
