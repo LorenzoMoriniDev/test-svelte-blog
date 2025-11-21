@@ -12,43 +12,39 @@ const telefono = "+39 340 546 1880";
     
     <div class="contact-layout">
       
-      <!-- Colonna Sinistra: Contatti Diretti -->
+      <!-- Colonna Sinistra: Contatti -->
       <div class="contact-details">
         <h3>Recapiti</h3>
-        <p>
-          <strong>Telefono:</strong><br/>
-          <a href={`tel:${telefono.replace(/\s/g, '')}`}>{telefono}</a>
-        </p>
-        <p>
-          <strong>Email:</strong><br/>
-          <a href={`mailto:${email}`}>{email}</a>
-        </p>
-        <p>
-          <strong>Orari:</strong><br/>
-          <span>Si riceve su appuntamento</span>
-        </p>
+        
+        <div class="contact-block">
+          <h4>Telefono</h4>
+          <p><a href={`tel:${telefono.replace(/\s/g, '')}`}>{telefono}</a></p>
+        </div>
+
+        <div class="contact-block">
+          <h4>Email</h4>
+          <p><a href={`mailto:${email}`}>{email}</a></p>
+        </div>
+
+        <div class="contact-block">
+          <h4>Orari</h4>
+          <p>Si riceve su appuntamento</p>
+        </div>
       </div>
 
-      <!-- Colonna Destra: Sedi Operative -->
+      <!-- Colonna Destra: Sedi -->
       <div class="contact-locations">
         <h3>Dove Ricevo</h3>
         
         <div class="location-box">
           <h4>Studio Livorno</h4>
-          <address>
-            Via Accademia Labronica 9<br>
-            (Presso Studi Medici)
-          </address>
+          <p>Via Accademia Labronica 9</p>
+          <p>(Presso Studi Medici)</p>
         </div>
-
-        <br>
 
         <div class="location-box">
           <h4>Studio Pisa</h4>
-          <address>
-            Piazza San Silvestro 7A<br>
-            Pisa
-          </address>
+          <p>Piazza San Silvestro 7A, Pisa</p>
         </div>
       </div>
 
