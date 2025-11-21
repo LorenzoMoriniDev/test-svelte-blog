@@ -1,38 +1,57 @@
 ---
 // src/components/Contatti.astro
+const email = "studionannipierifrancesco@gmail.com";
+const telefono = "+39 340 546 1880";
 ---
 <section id="contact">
   <div class="container">
-    <h2>Contatti e Sede</h2>
+    <h2>Contatti e Sedi</h2>
     <p class="section-subtitle">
-      Ricevo su appuntamento. Contattami per discutere del tuo percorso o per prenotare una valutazione iniziale.
+      Ricevo su appuntamento a Livorno e Pisa. Contattami per valutare insieme il percorso più adatto alle tue esigenze.
     </p>
     
     <div class="contact-layout">
+      
+      <!-- Colonna Sinistra: Contatti Diretti -->
       <div class="contact-details">
-        <h3>Informazioni</h3>
+        <h3>Recapiti</h3>
         <p>
-          <strong>Telefono:</strong>
-          <a href="tel:+391234567890">+39 123 456 7890</a>
+          <strong>Telefono:</strong><br/>
+          <a href={`tel:${telefono.replace(/\s/g, '')}`}>{telefono}</a>
         </p>
         <p>
-          <strong>Email:</strong>
-          <a href="mailto:info@esempio.it">info@esempio.it</a>
+          <strong>Email:</strong><br/>
+          <a href={`mailto:${email}`}>{email}</a>
         </p>
         <p>
-          <strong>Indirizzo:</strong>
-          <span>Via Roma 1, 00100 Roma (RM)</span>
-        </p>
-        <p>
-          <strong>Orari:</strong>
-          <span>Lunedì - Venerdì, 9:00 - 19:00</span>
+          <strong>Orari:</strong><br/>
+          <span>Si riceve su appuntamento</span>
         </p>
       </div>
 
-      <div class="map-placeholder">
-        <!-- Qui va incorporata la mappa di Google -->
-        <p>Studio Fisioterapico</p>
+      <!-- Colonna Destra: Sedi Operative -->
+      <div class="contact-locations">
+        <h3>Dove Ricevo</h3>
+        
+        <div class="location-box">
+          <h4>Studio Livorno</h4>
+          <address>
+            Via Accademia Labronica 9<br>
+            (Presso Studi Medici)
+          </address>
+        </div>
+
+        <br>
+
+        <div class="location-box">
+          <h4>Studio Pisa</h4>
+          <address>
+            Piazza San Silvestro 7A<br>
+            Pisa
+          </address>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
