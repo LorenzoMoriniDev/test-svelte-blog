@@ -1,18 +1,26 @@
 ---
 // src/components/Footer.astro
-const p_iva = "12345678901";
-const email = "info@email.it";
-const telefono = "+391234567890";
-const indirizzo = "Via Roma 1, 00100 Roma (RM)";
+const p_iva = "02359940505";
+const email = "studionannipierifrancesco@gmail.com";
+const telefono = "+39 340 546 1880";
+
+// Definisco i due indirizzi
+const studio_livorno = "Via Accademia Labronica 9, (Studi Medici) Livorno";
+const studio_pisa = "Piazza San Silvestro 7A, Pisa";
 ---
 <footer>
   <div class="footer-content">
     <div class="footer-contact">
       <p><strong>P.IVA:</strong> {p_iva}</p>
-      <p><strong>Indirizzo:</strong> {indirizzo}</p>
+      
+      <!-- Sezione indirizzi -->
+      <p><strong>Studio Livorno:</strong> {studio_livorno}</p>
+      <p><strong>Studio Pisa:</strong> {studio_pisa}</p>
+
       <p>
         <strong>Email:</strong> <a href={`mailto:${email}`}>{email}</a> | 
-        <strong>Telefono:</strong> <a href={`tel:${telefono}`}>{telefono}</a>
+        <!-- Rimuovo gli spazi nel link "tel:" per compatibilità, ma li lascio nel testo visibile -->
+        <strong>Telefono:</strong> <a href={`tel:${telefono.replace(/\s/g, '')}`}>{telefono}</a>
       </p>
     </div>
   
@@ -25,7 +33,7 @@ const indirizzo = "Via Roma 1, 00100 Roma (RM)";
     <div class="footer-legal">
       <a href={`${import.meta.env.BASE_URL}/privacy-policy/`}>Privacy Policy</a> | 
       <a href={`${import.meta.env.BASE_URL}/cookie-policy/`}>Cookie Policy</a>
-      <p>&copy; {new Date().getFullYear()} Nome Cognome. Tutti i diritti riservati.</p>
+      <p>&copy; {new Date().getFullYear()} Francesco Nannipieri. Tutti i diritti riservati.</p>
     </div>
   </div>
 </footer>
